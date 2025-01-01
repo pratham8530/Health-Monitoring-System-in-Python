@@ -1,0 +1,145 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <style>
+        body {
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+        }
+        .card {
+            height: 10rem; /* Standard height for cards */
+        }
+        .active {
+            border-bottom-width: 2px;
+            border-color: #3b82f6; /* Tailwind blue-500 */
+        }
+        .hidden-section {
+            display: none;
+        }
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body class="p-4">
+    <div class="max-w-screen-xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-center bg-gray-800 p-4 rounded-lg mb-4">
+            <div class="text-xl">Hi PRATHAMESH</div>
+            <div class="flex space-x-8">
+                <a id="dashboardLink" class="text-white active cursor-pointer" onclick="showSection('dashboardSection', 'dashboardLink')">Dashboard</a>
+                <a id="goalsLink" class="text-white cursor-pointer" onclick="showSection('goalsSection', 'goalsLink')">Goals</a>
+                <a id="contactLink" class="text-white cursor-pointer" onclick="showSection('contactSection', 'contactLink')">Contact Us</a>
+            </div>
+            <div class="w-8 h-8 bg-gray-600 rounded-full"></div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="fade-in">
+            <!-- Main Content (Dashboard Section) -->
+            <div class="grid grid-cols-5 gap-4">
+                <!-- Health Info -->
+                <div class="col-span-2 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Health Info</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="bg-blue-400 card rounded-lg"></div>
+                        <div class="bg-red-400 card rounded-lg"></div>
+                        <div class="bg-yellow-600 card rounded-lg"></div>
+                        <div class="bg-green-400 card rounded-lg"></div>
+                    </div>
+                </div>
+                <!-- Monthly Activity -->
+                <div class="col-span-3 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Monthly Activity</div>
+                </div>
+                <!-- Health Recommendation -->
+                <div class="col-span-3 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Health Recommendation</div>
+                    <div class="h-32"></div>
+                </div>
+                <!-- Help from Doctor -->
+                <div class="col-span-2 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Help from Doctor</div>
+                    <div class="h-32"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goals Section -->
+        <div id="goalsSection" class="hidden-section">
+            <div class="bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">Set Your Goals</h2>
+                <p class="text-justify mb-4">
+                    Here, you can set your daily health goals.
+                </p>
+                <ul class="list-disc ml-6">
+                    <li>Step Counter Goals</li>
+                    <li>Daily Sleep Targets</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div id="contactSection" class="hidden-section">
+            <div class="bg-gray-800 p-8 rounded-lg flex flex-col md:flex-row justify-between items-center">
+                <!-- Image on the left -->
+                <div class="md:w-1/2 w-full mb-4 md:mb-0">
+                    <img src="Image.png" alt="Health and Fitness Illustration" class="rounded-lg shadow-lg">
+                </div>
+                <!-- Text on the right -->
+                <div class="md:w-1/2 w-full pl-0 md:pl-8 text-left">
+                    <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+                    <p class="text-justify mb-4">
+                        Our website aims to help individuals track their health data, analyze it over time, and provide personalized recommendations to improve overall health and well-being. We focus on providing insights into various health metrics such as step count, sleep patterns, and much more.
+                    </p>
+                    <p class="text-justify mb-4">
+                        Set daily goals, such as increasing your step count or ensuring adequate sleep, and track your progress with ease. Our system continuously studies your data to offer suggestions tailored to your needs.
+                    </p>
+                    <!-- Contact Information -->
+                    <div class="mt-8">
+                        <h3 class="text-xl font-semibold mb-2">Contact Us</h3>
+                        <div class="flex items-center mb-2">
+                            <i class="fas fa-envelope text-blue-400 mr-2"></i>
+                            <a href="mailto:support@healthtracker.com" class="text-white hover:underline">support@healthapp.com</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-400 mr-2"></i>
+                            <a href="tel:+91853044xxxx" class="text-white hover:underline">+91 853044xxxx</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showSection(sectionId, linkId) {
+            // Hide all sections
+            document.getElementById('dashboardSection').classList.add('hidden-section');
+            document.getElementById('goalsSection').classList.add('hidden-section');
+            document.getElementById('contactSection').classList.add('hidden-section');
+            
+            // Show the clicked section with fade-in animation
+            const section = document.getElementById(sectionId);
+            section.classList.remove('hidden-section');
+            section.classList.add('fade-in');
+
+            // Remove active class from all links
+            document.getElementById('dashboardLink').classList.remove('active');
+            document.getElementById('goalsLink').classList.remove('active');
+            document.getElementById('contactLink').classList.remove('active');
+
+            // Add active class to the clicked link
+            document.getElementById(linkId).classList.add('active');
+        }
+    </script>
+</body>
+</html>

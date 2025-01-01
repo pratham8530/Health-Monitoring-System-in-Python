@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #222;
+  color: #fff;
+}
+
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #444;
+}
+
+.header h1 {
+  font-size: 24px;
+}
+
+nav a {
+  margin-right: 20px;
+  font-size: 18px;
+  color: #aaa;
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.health-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.health-info .card {
+  height: 120px;
+  border-radius: 15px;
+  background-color: #333;
+}
+
+.blue {
+  background-color: #4b9cdb;
+}
+
+.red {
+  background-color: #db5f5f;
+}
+
+.brown {
+  background-color: #9c7957;
+}
+
+.green {
+  background-color: #57db8a;
+}
+
+.activity-chart {
+  grid-column: 2 / span 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.activity-chart h2 {
+  margin-bottom: 15px;
+  font-size: 20px;
+}
+
+.activity-chart img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+}
+
+.health-recommendation,
+.doctor-help {
+  grid-column: 1 / span 2;
+  background-color: #333;
+  padding: 15px;
+  border-radius: 15px;
+  margin-top: 15px;
+}
+
+.health-recommendation h2,
+.doctor-help h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
