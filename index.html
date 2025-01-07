@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="p-4">
+    <div class="max-w-screen-xl mx-auto">
+        <!-- Header -->
+        <div class="flex justify-between items-center bg-gray-800 p-4 rounded-lg mb-4">
+            <div class="text-xl">Hi PRATHAMESH</div>
+            <div class="flex space-x-8">
+                <a id="dashboardLink" class="text-white active cursor-pointer" onclick="showSection('dashboardSection', 'dashboardLink')">Dashboard</a>
+                <a id="goalsLink" class="text-white cursor-pointer" onclick="showSection('goalsSection', 'goalsLink')">Goals</a>
+                <a id="contactLink" class="text-white cursor-pointer" onclick="showSection('contactSection', 'contactLink')">Contact Us</a>
+            </div>
+            <div class="w-8 h-8 bg-gray-600 rounded-full"></div>
+        </div>
+
+        <!-- Dashboard Section -->
+        <div id="dashboardSection" class="fade-in">
+            <div class="grid grid-cols-5 gap-4">
+                <!-- Health Info -->
+                <div class="col-span-2 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Health Info</div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div id="temperatureBox" class="bg-yellow-600 card rounded-lg">
+                            <div class="label">Temperature</div>
+                            <div id="temperatureValue" class="value-text">Loading...</div>
+                        </div>
+                        <div id="SPO2Box" class="bg-blue-400 card rounded-lg">
+                            <div class="label">SpO2</div>
+                            <div id="spo2Value" class="value-text">Loading...</div>
+                        </div>
+                        <div id="heartRateBox" class="bg-red-400 card rounded-lg">
+                            <div class="label">Heart Rate</div>
+                            <div id="heartRateValue" class="value-text">Loading...</div>
+                        </div>
+                        <div id="stepCountBox" class="bg-green-400 card rounded-lg">
+                            <div class="label">Step Count</div>
+                            <div id="stepCountValue" class="value-text">Loading...</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Monthly Activity Section -->
+                <div class="col-span-3 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Monthly Activity</div>
+                    <canvas id="weeklyStepsChart" width="400" height="200"></canvas>
+                </div>
+
+                <!-- Health Recommendation Section -->
+                <div class="col-span-3 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Health Recommendation</div>
+                    <div id="healthRecommendation" class="h-32 flex items-center justify-center text-lg font-semibold"></div>
+                </div>
+
+                <!-- Help from Doctor Section (Chatbot) -->
+                <div class="col-span-2 bg-gray-800 p-4 rounded-lg">
+                    <div class="text-sm mb-2">Help from Doctor</div>
+                    <div id="chatBot" class="h-32 overflow-y-auto bg-gray-900 p-2 rounded-lg text-sm">
+                        <div id="chatLog"></div>
+                        <input id="chatInput" class="w-full mt-2 p-2 rounded-lg bg-gray-700 text-white" placeholder="Type your problem here..." onkeydown="handleChat(event)">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Goals Section -->
+        <div id="goalsSection" class="hidden-section">
+            <div class="bg-gray-800 p-8 rounded-lg">
+                <h2 class="text-2xl font-bold mb-4">Set Your Goals</h2>
+                <p class="text-justify mb-4">
+                    Here, you can set your daily health goals. Whether it's increasing your daily steps, getting more sleep, or keeping track of your water intake, our system will help you stay on track!
+                </p>
+                <ul class="list-disc ml-6">
+                    <li>Step Counter Goals</li>
+                    <li>Daily Sleep Targets</li>
+                    <li>Hydration Levels</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Contact Us Section -->
+        <div id="contactSection" class="hidden-section">
+            <div class="bg-gray-800 p-8 rounded-lg flex flex-col md:flex-row justify-between items-center">
+                <div class="md:w-1/2 w-full mb-4 md:mb-0">
+                    <img src="1.webp" alt="Health and Fitness Illustration" class="rounded-lg shadow-lg" width="400" height="auto">
+                </div>
+                <div class="md:w-1/2 w-full pl-0 md:pl-8 text-left">
+                    <h2 class="text-2xl font-bold mb-4">Our Mission</h2>
+                    <p class="text-justify mb-4">Our website aims to help individuals track their health data...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/script.js"></script>
+</body>
+</html>

@@ -108,3 +108,45 @@ nav a:hover {
   font-size: 20px;
   margin-bottom: 10px;
 }
+body {
+  background-color: #1a1a1a;
+  color: #e5e5e5;
+}
+.card {
+  height: 10rem;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #fff;
+  flex-direction: column;
+}
+.label {
+  position: absolute;
+  top: 5%;
+  left: 5%;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  color: #e5e5e5;
+}
+.value-text {
+  font-size: 1.25rem;
+}
+.active {
+  border-bottom-width: 2px;
+  border-color: #3b82f6;
+}
+.hidden-section {
+  display: none;
+}
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
