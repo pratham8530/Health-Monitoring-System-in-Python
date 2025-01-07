@@ -49,8 +49,8 @@ const chatBotFlow = [
 		question: "Are you currently on any medication?",
 		options: ["yes", "no"],
 		responses: {
-			"Yes": "Please continue with your medication and consult a doctor if symptoms persist.",
-			"No": "Consider over-the-counter remedies, but consult a doctor if needed."
+			"yes": "Please continue with your medication and consult a doctor if symptoms persist.",
+			"no": "Consider over-the-counter remedies, but consult a doctor if needed."
 		}
 	}
 ];
