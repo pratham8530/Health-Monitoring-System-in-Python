@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify, render_template
 
 app = Flask(__name__)
 
-# Store the latest sensor data
 sensor_data = {
     "heartRate": "N/A",
     "SPO2": "N/A",
@@ -16,7 +15,7 @@ def receive_data():
     sensor_data['heartRate'] = request.form.get('heartRate', 'N/A')
     sensor_data['SPO2'] = request.form.get('SPO2', 'N/A')
     
-    # Get temperature, add 3 if it's a valid number
+ 
     temperature = request.form.get('temperature', 'N/A')
     if temperature != 'N/A':
         try:
